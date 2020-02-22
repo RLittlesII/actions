@@ -1,0 +1,12 @@
+name: Nuke
+
+on:
+
+jobs:
+  macOS-latest:
+    name: macOS-latest
+    runs-on: macOS-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Run './build.sh '
+        run: ./build.sh 
