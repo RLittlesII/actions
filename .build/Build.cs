@@ -4,6 +4,7 @@ using Nuke.Common;
 using Nuke.Common.CI.GitHubActions;
 using Nuke.Common.Execution;
 using Nuke.Common.Git;
+using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
 using Nuke.Common.Tooling;
 using Nuke.Common.Tools.DotNet;
@@ -14,7 +15,10 @@ using static Nuke.Common.IO.FileSystemTasks;
 using static Nuke.Common.IO.PathConstruction;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
 
-[GitHubActions("Nuke", GitHubActionsImage.MacOsLatest)]
+[GitHubActions(
+    "Nuke",
+    GitHubActionsImage.MacOsLatest,
+    On = new []{ GitHubActionsTrigger.Push, GitHubActionsTrigger.PullRequest })]
 [CheckBuildProjectConfigurations]
 [UnsetVisualStudioEnvironmentVariables]
 class Build : NukeBuild

@@ -1,6 +1,6 @@
 name: Nuke
 
-on:
+on: [push, pullrequest]
 
 jobs:
   macOS-latest:
